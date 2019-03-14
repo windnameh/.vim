@@ -7,7 +7,6 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """""""""""""""""""""""""""""
 "" vim-plug
 """""""""""""""""""""""""""""
@@ -55,6 +54,8 @@ call plug#end()
 "" misc
 """""""""""""""""""""""""""""
 set nocompatible
+set backspace=indent,eol,start
+filetype off
 syntax on
 set noic	"noic: case sensitive ic: case insensitive
 set ruler
