@@ -16,7 +16,6 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
@@ -30,7 +29,7 @@ Plug 'sickill/vim-monokai'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
