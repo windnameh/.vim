@@ -7,6 +7,8 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
+
 """""""""""""""""""""""""""""
 "" vim-plug
 """""""""""""""""""""""""""""
@@ -15,6 +17,7 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
@@ -53,10 +56,6 @@ call plug#end()
 """""""""""""""""""""""""""""
 "" misc
 """""""""""""""""""""""""""""
-set nocompatible
-set backspace=indent,eol,start
-filetype off
-syntax on
 set noic	"noic: case sensitive ic: case insensitive
 set ruler
 set number
