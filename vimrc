@@ -30,7 +30,7 @@ Plug 'sickill/vim-monokai'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -278,6 +278,15 @@ nmap <F12> :TagbarToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_sort = 0
 
+
+""""""""""""""""""""""""""""""
+"" vim-easy-align
+""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 "" NERDTree
