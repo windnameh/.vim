@@ -21,6 +21,8 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 
 " theme
 Plug 'nanotech/jellybeans.vim'
@@ -108,9 +110,9 @@ endif
 """"""""""""""""""""""""""""""
 " make vim save and load the folding of the document each time it loads
 " also places the cursor in the last place that it was left.
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
-
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 """"""""""""""""""""""""""""""
 "" file format
@@ -242,13 +244,19 @@ autocmd BufNewFile,BufRead *.cflow setf cflow
 
 
 """"""""""""""""""""""""""""""
-"" gtags
+"" gutentags
 """"""""""""""""""""""""""""""
-let GtagsCscope_Auto_Load = 1
-let GtagsCscope_Auto_Map = 1
-let GtagsCscope_Quiet = 1
-set cscopetag
-set cscopeprg='gtags-cscope'
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
 
 
 """"""""""""""""""""""""""""""
