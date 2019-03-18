@@ -49,7 +49,15 @@ function! BuildYCM(info)
   endif
 endfunction
 
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+let g:YouCompleteMeLazyLoaded = 0
+function! LazyLoadingYMC()
+  if g:YouCompleteMeLazyLoaded == 0
+    let g:YouCompleteMeLazyLoaded = 1
+    call plug#load('YouCompleteMe') | call youcompleteme#Enable()
+  endif
+endfunction
+autocmd BufWinEnter * call timer_start(1, {id->execute('call LazyLoadingYMC()')} )
 
 " Initialize plugin system
 call plug#end()
