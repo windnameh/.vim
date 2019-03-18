@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+  Plug 'skywind3000/gutentags_plus'
 
 " theme
 Plug 'nanotech/jellybeans.vim'
