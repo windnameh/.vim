@@ -21,8 +21,8 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'ludovicchabant/vim-gutentags'
-  Plug 'skywind3000/gutentags_plus'
+Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'], 'on' : [] }
+  Plug 'skywind3000/gutentags_plus', { 'for': ['c', 'cpp'], 'on' : [] }
 
 " theme
 Plug 'nanotech/jellybeans.vim'
