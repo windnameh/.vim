@@ -26,9 +26,9 @@ Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'], 'on' : [] }
 
 " theme
 Plug 'nanotech/jellybeans.vim'
-Plug 'jacoborus/tender.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'sickill/vim-monokai'
+"Plug 'jacoborus/tender.vim'
+"Plug 'lifepillar/vim-solarized8'
+"Plug 'sickill/vim-monokai'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -72,8 +72,12 @@ set number
 set hlsearch
 set history=1000
 
+
 " Toggle line numbers and fold column for easy copying:
-nnoremap <F2>n :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <F3>n :set nonumber!<CR>:set foldcolumn=0<CR>
+
+" show only current window
+nmap <F2> :only<CR>
 
 
 """"""""""""""""""""""""""""""
