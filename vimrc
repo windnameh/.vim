@@ -57,7 +57,6 @@ function! LazyLoadingYMC()
     call plug#load('YouCompleteMe') | call youcompleteme#Enable()
   endif
 endfunction
-autocmd BufWinEnter * call timer_start(1, {id->execute('call LazyLoadingYMC()')} )
 
 " Initialize plugin system
 call plug#end()
@@ -96,15 +95,6 @@ if has('gui_running')
 	set guifont=Consolas\ 14
 endif
 
-
-""""""""""""""""""""""""""""""
-"" back to last modified
-""""""""""""""""""""""""""""""
-" make vim save and load the folding of the document each time it loads
-" also places the cursor in the last place that it was left.
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 """"""""""""""""""""""""""""""
 "" file format
@@ -236,9 +226,6 @@ else
 	call SetColorScheme("jellybeans")
 endif
 
-"autocmd FileType python call SetColorScheme("solarized-dark")
-"autocmd FileType sh call SetColorScheme("solarized-dark")
-
 
 """"""""""""""""""""""""""""""
 "" disable toolbar at gui mode
@@ -247,12 +234,6 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove Taglist scroll bar
-
-
-""""""""""""""""""""""""""""""
-"" cflow
-""""""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.cflow setf cflow
 
 
 """"""""""""""""""""""""""""""
@@ -339,16 +320,30 @@ function! SetVimClangFormat()
 	map <C-K> :pyf ~/.vim/clang-format.py<CR>
 	imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 endfunction
-autocmd FileType,BufNewFile,BufRead c,cpp,h,hh,hpp call SetVimClangFormat()
-
-
-""""""""""""""""""""""""""""""
-"" python yapf
-""""""""""""""""""""""""""""""
-autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 
 """"""""""""""""""""""""""""""
 "" makrdown
 """"""""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled = 1
+
+
+""""""""""""""""""""""""""""""
+"" autocmd
+""""""""""""""""""""""""""""""
+augroup EditVim
+    autocmd!
+    autocmd BufWinEnter * call timer_start(1, {id->execute('call LazyLoadingYMC()')} )
+    autocmd FileType,BufNewFile,BufRead c,cpp,h,hh,hpp call SetVimClangFormat()
+
+    " ----------------------
+    "" back to last modified
+    " ----------------------
+    " make vim save and load the folding of the document each time it loads
+    " also places the cursor in the last place that it was left.
+    if has("autocmd")
+      autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    endif
+    "autocmd FileType python call SetColorScheme("solarized-dark")
+    "autocmd FileType sh call SetColorScheme("solarized-dark")
+augroup END
