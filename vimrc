@@ -21,8 +21,11 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'], 'on' : [] }
-  Plug 'skywind3000/gutentags_plus', { 'for': ['c', 'cpp'], 'on' : [] }
+"Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'], 'on' : [] }
+Plug 'ludovicchabant/vim-gutentags'
+ Plug 'skywind3000/gutentags_plus', { 'for': ['c', 'cpp'], 'on' : [] }
+"Plug 'ludovicchabant/vim-gutentags'
+ "Plug 'skywind3000/gutentags_plus'
 
 " theme
 Plug 'nanotech/jellybeans.vim'
@@ -317,8 +320,8 @@ nnoremap <F5> :GundoToggle<CR>
 "" clang-format
 """"""""""""""""""""""""""""""
 function! SetVimClangFormat()
-	map <C-K> :pyf ~/.vim/clang-format.py<CR>
-	imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
+	map <C-K> :py3f ~/.vim/clang-format.py<CR>
+	imap <C-K> <ESC>:py3f ~/.vim/clang-format.py<CR>i
 endfunction
 
 
